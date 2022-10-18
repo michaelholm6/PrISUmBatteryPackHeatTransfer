@@ -1,17 +1,17 @@
 from function_definitions import *
 
 cellNumber = 180 #unitless
-transversePitch = 22.5 #mm
-longitudinalPitch = 18 #mm
-cellDiameter = 18 #mm
-cellLength = .455 #m
+transversePitch = 20 #mm
+longitudinalPitch = 18.536 #mm
+cellDiameter = 18.5 #mm
+cellLength = .32535 #m
 numberLongitudinal = 45 #unitless
 numberTransverse = 4 #unitless
 freestreamTemp = 30 #Celsius
 velocity = 2.5 #m/s
 surfaceTemp = 60 #Celsius
-arrangement = "staggered" #"staggered" or "aligned"
-diametricalPitch = 20.3 #mm
+arrangement = "aligned" #"staggered" or "aligned"
+diametricalPitch = 0 #mm, if aligned, say this is zero
 
 
 fluidDensity = calculateFluidDensity(surfaceTemp, freestreamTemp)
@@ -27,5 +27,5 @@ specificHeat = calculateFluidSpecificHeat(surfaceTemp, freestreamTemp)
 exitTemp = calculateExitTemp(cellDiameter, cellNumber, hBar, fluidDensity, velocity, numberTransverse, transversePitch, specificHeat, surfaceTemp, freestreamTemp)
 logMeanTempDif = calculateLogMeanTempDifference(surfaceTemp, freestreamTemp, exitTemp)
 totalHeatTransfer = calculateTotalHeatTransfer(cellNumber, hBar, cellDiameter, logMeanTempDif, cellLength)
-print(exitTemp)
-print(totalHeatTransfer)
+print("Exit temperature of the air:" + str(exitTemp))
+print("Total heat transfer:" + str(totalHeatTransfer))
